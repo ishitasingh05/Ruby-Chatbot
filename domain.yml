@@ -1,0 +1,179 @@
+version: '2.0'
+
+config:
+  store_entities_as_slots: true
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- greet:
+    use_entities: true
+- name_of_user:
+    use_entities: true
+- email_id_of_user:
+    use_entities: true
+- phone_number_of_user:
+    use_entities: true
+- register_grievances:
+    use_entities: true
+- feedback:
+    use_entities: true
+- customer_care:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- understand_query:
+    use_entities: true
+- help:
+    use_entities: true
+- grievances:
+    use_entities: true
+- status_check:
+    use_entities: true
+- unique_id_of_user:
+    use_entities: true
+- register_grievance:
+    use_entities: true
+
+entities:
+- name
+- email_id
+- phone_number
+- service
+- unique_id
+
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  email_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  phone_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  service:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  information:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  unique_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  otp_number:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  requested_slot:
+    type: rasa.shared.core.slots.UnfeaturizedSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: Hey! I am Ruby, the bot.
+  utter_ask_name:
+  - text: Could you provide me your name?
+  utter_ask_email_id:
+  - text: Could you please provide me your email id?
+  utter_ask_phone_number:
+  - text: Could you please provide me your phone number?
+  utter_ask_service:
+  - buttons:
+    - payload: /register_grievances{{"service":"Grievance"}}
+      title: Register a grievance
+    - payload: /feedback{{"service":"Feedback"}}
+      title: Give Feedback
+    text: We have added your credentials successfully! How may I assist you, {name}?
+  utter_ask_information:
+  - text: Tell us more about your {service}.
+  utter_submit:
+  - text: We have noted it, {name}. Thank you.
+  utter_ask_unique_id:
+  - text: Could you please provide your unique id?
+  utter_ask_otp_number:
+  - text: We have sent an OTP to your registered phone number. Could you please provide us the otp?
+  utter_goodbye:
+  - text: Bye! Have a nice day
+  - text: Bye! Come back again soon.
+  - text: See you later
+  utter_iamabot:
+  - text: I am a bot named Ruby.
+  utter_understood:
+  - text: I read you loud and clear!
+  - text: Well, I would not be a very clever bot if I did not, would I?
+  utter_ask_for_customer_care:
+  - buttons:
+    - payload: /affirm
+      title: Yes!
+    - payload: /deny
+      title: No!
+    text: Would you like to speak to the team?
+  utter_gratitude:
+  - text: Thank you!
+  utter_pre_finish:
+  - text: Thank you for your time with us.
+  utter_finish:
+  - text: I’m sharing the information on your behalf with our team. Have a nice day!
+  utter_connecting_to_team:
+  - text: Give us a moment! Connecting to the team
+
+actions:
+- validate_credential_form
+- action_submit
+- validate_status_form
+- action_status
+#- action_summarise
+
+forms:
+  credential_form:
+    required_slots:
+      name:
+      - entity: name
+        type: from_entity
+      email_id:
+      - entity: email_id
+        type: from_entity
+      phone_number:
+      - entity: phone_number
+        type: from_entity
+      service:
+      - entity: service
+        type: from_entity
+      information:
+      - type: from_text
+
+
+
+  status_form:
+    required_slots:
+      unique_id:
+      - entity: unique_id
+        type: from_entity
+      otp_number:
+      - type: from_text
+
+e2e_actions: []

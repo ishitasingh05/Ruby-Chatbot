@@ -1,0 +1,195 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: name_of_user
+  examples: |
+    - I am [Ishita Singh](name)
+    - This is [Sana](name)
+    - My name is [Aakash](name)
+    - You can call me [Barney](name)
+    - [Aakash Anchal](name)
+    - People call me [Rachel Green](name)
+    - My name is [Pheobe Buffay](name)
+    - My name is [Ross](name)
+    - [Todd Chavez](name)
+    - This is [Sourav](name)
+    - I am [Chandler] (name)
+    - My name is [Monica](name)
+    - My name is Erica(name)
+    - I am [Daine](name)
+    - This is [Shyama](name)
+    - My name is [John](name)
+    - You can call me [Mark](name)
+    - [BoJack Horseman](name)
+
+- intent: email_id_of_user
+  examples: |
+    - [abc@gmail.com](email_id)
+    - [iiishita.is@gmail.com](email_id)
+    - [iamerica@yahoo.com](email_id)
+    - [abc123@hotmail.com](email_id)
+    - [aksh4354@gmailcom](email_id)
+    - [bojack123.horseman@outlook.com](email_id)
+
+- intent: phone_number_of_user
+  examples: |
+    - [1234567890](phone_number)
+    - [8765432331](phone_number)
+    - [7762031580](phone_number)
+    - [9334615376](phone_number)
+    - [8607004354](phone_number)
+    - [9835135603](phone_number)
+
+- intent: register_grievance
+  examples: |
+    - I want to store a [grievance](service)
+    - I want to store a [complaint](service)
+    - I want to register a [grievance](service)
+    - I want to register a [problem](service)
+    - I want to register a [complaint](service)
+    - I want to file a [grievance](service)
+    - I have a [complaint](service)
+    - I have a [grievance](service)
+    - I have [grievances](service)
+
+- intent: feedback
+  examples: |
+    - [feedback](service)
+    - start [feedback](service)
+    - give [feedback](service)
+    - begin [feedback](service)
+    - I want to give [feedback]
+    - i want to register a [feedback](service)
+
+- intent: customer_care
+  examples: |
+    - Connect to Customer Care
+    - Talk to Customer Care
+    - I want to talk to the customer care
+    - Connect me to the customer care
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Adios
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yeah
+    - sure
+    - yup
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not at all
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: understand_query
+  examples: |
+    - Do you understand what I am saying?
+    - Do you understand me?
+    - Do you know what I am saying?
+    - Do you get me?
+    - Know what I mean
+    - Did you get it?
+
+- intent: help
+  examples: |
+    - I need help
+    - help
+    - seek help
+    - looking for help
+
+- intent: grievances
+  examples: |
+    - unsatisfactory
+    - complain
+    - unfair
+    - wrong
+    - complaint
+    - problem
+    - fault
+    - misunderstanding
+    - dislike
+    - despise
+    - bad
+
+- intent: status_check
+  examples: |
+    - What is the status?
+    - What is my status?
+    - Give me the status
+    - Provide me the status
+    - Could you provide me the status?
+
+- intent: unique_id_of_user
+  examples: |
+    - My unique id is [bL59AFBl](unique_id).
+    - Unique Id is [98MSiAS3](unique_id).
+    - This is my Unique id, [6cKvfqpB](unique_id).
+    - My unique id [7YMJGuo4](unique_id)
+    - Unique id is [Pa5sH6hw](unique_id)
+    - [FoBvbLsE](unique_id)
+    - [SKivbDkb](unique_id)
+    - My Unique id is [ck59wFAl](unique_id)
+    - My unique id [7YMJGuo4](unique_id)
+    - Unique id is [Pa5sH6hw](unique_id)
+    - [eMJyN2AQ](unique_id)
+    - [Ej5bCyFN](unique_id)
+    - My unique id [YnhqYX3y](unique_id)
+    - [Xcoo78r3](unique_id)
+    - [Zmikw7oC](unique_id)
+    - [OI2hHALs](unique_id)
+
+- intent: gmail_summariser
+  examples: |
+    - Summarise the email
+    - Provide me the summary of my email
+    - Fetch me the summary of my email
+    - Give me the summary of my email
+    - Could you provide me the summary of my email
+

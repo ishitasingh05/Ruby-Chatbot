@@ -1,0 +1,53 @@
+version: "2.0"
+
+stories:
+
+- story: store grievance or feedback
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: credential_form
+  - active_loop: credential_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_submit
+  - action: utter_finish
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: get status
+  steps:
+  - intent: status_check
+  - action: status_form
+  - active_loop: status_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_status
+  - action: utter_gratitude
+
+
+- story: connect to the customer care 1
+  steps:
+  - intent: customer_care
+  - action: utter_ask_for_customer_care
+  - intent: affirm
+  - action: utter_connecting_to_team
+
+- story: connect to the customer care 2
+  steps:
+  - intent: customer_care
+  - action: utter_ask_for_customer_care
+  - intent: deny
+  - action: utter_pre_finish
+  - action: utter_goodbye
+
+
+#- story: email summarise
+#  steps:
+#  - intent: gmail_summariser
+#  - action: action_summarise
+#  - action: utter_gratitude
+#  - intent: goodbye
+#  - action: utter_goodbye
